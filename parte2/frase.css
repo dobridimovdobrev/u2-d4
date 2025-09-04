@@ -1,0 +1,100 @@
+/*
+1 creazione del testo e formattazione di 1 parola da far ruotare
+2 inserimento delle altre 2 parole
+3 sovrapporre le 3 parole
+4 mostrare 1 parola e nascondere le altre 2
+5 animare 1 parola (fadein - fadeout con spostamento)
+6 animare le altre 2 parole
+7 ritardare progressivamente l'animazione delle altre 2 parole 
+*/
+main{
+
+    margin-top: 5rem;
+}
+
+/* testo alternato */
+#testoAlternato {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    position: relative;
+}
+
+
+#testoAlternato p {
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.parole {
+    display: inline-block;
+    position: relative;
+    height: 1.5em;
+    vertical-align: top;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+/* singole parole che si alternano */
+.parole i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    -webkit-animation: rotateWord 6s linear infinite 0s;
+    -moz-animation: rotateWord 6s linear infinite 0s;
+    -o-animation: rotateWord 6s linear infinite 0s;
+    animation: rotateWord 6s linear infinite 0s;
+    width: 100%;
+    display: inline-block;
+    color: #ffcc00;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* Ritardo per ogni parola */
+.parole i:nth-child(2) {
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    -o-animation-delay: 2s;
+    animation-delay: 2s;
+}
+
+.parole i:nth-child(3) {
+    -webkit-animation-delay: 4s;
+    -moz-animation-delay: 4s;
+    -o-animation-delay: 4s;
+    animation-delay: 4s;
+}
+
+/* Animazione per la rotazione delle parole */
+
+@keyframes rotateWord {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
